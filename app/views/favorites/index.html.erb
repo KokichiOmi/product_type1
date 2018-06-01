@@ -1,0 +1,23 @@
+<header class="masthead text-center text-white d-flex">
+  <div class="container my-auto">
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        <p id="notice"><%= notice %></p>
+        <h1>Favorites</h1>
+        <table>
+          <% @favorites.each do |favorite| %>
+          　<tr>
+              <td>Posted by <%= favorite.user.name %></td>
+          　</tr>
+            <tr>
+              <td><%= image_tag favorite.post.image %></td>
+            </tr>
+            <tr>
+              <td><%= link_to 'DESTROY', favorite, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+</header>

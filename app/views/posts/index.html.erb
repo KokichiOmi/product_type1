@@ -1,0 +1,30 @@
+<header class="masthead text-center text-white d-flex">
+  <div class="container my-auto">
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        <p id="notice"><%= notice %></p>
+        <h1>Posts</h1>
+        <table>
+          <% @posts.each do |post| %>
+          　<tr>
+              <td>Posted by <%= post.user.name %></td>
+          　</tr>
+            <tr>
+              <td><%= image_tag post.image %></td>
+            </tr>
+              <td><%= post.content %></td>
+            <tr>
+              <td>
+                <%= link_to 'Show', post, class: 'btn btn-primary' %> 
+                <% if post.user_id == current_user.id  %>
+                  | <%= link_to 'EDIT', edit_post_path(post), class: 'btn btn-success'  %> |
+                  <%= link_to 'DESTROY', post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+</header>

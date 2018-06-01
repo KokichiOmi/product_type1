@@ -1,0 +1,48 @@
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div>
+        <% flash.each do |key, value| %>
+          <%= content_tag(:div, value, class: "#{key}") %>
+        <% end %>
+      </div>
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="/">RPA-SUI</a>
+        
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <% if logged_in? %>
+              <li class="nav-item">
+                <%= link_to "PROFILE", user_path(current_user.id), class:'nav-link js-scroll-trigger' %>  
+              </li>
+              <li class="nav-item">
+                <%= link_to "POST", new_post_path, class:'nav-link js-scroll-trigger' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "LIST", posts_path, class:'nav-link js-scroll-trigger' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "FAVORITES", favorites_path, class:'nav-link js-scroll-trigger' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "CONTACT", new_contact_path, class:'nav-link js-scroll-trigger' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "LOG OUT", session_path(current_user.id), method: :delete, class:'nav-link js-scroll-trigger' %>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <%= link_to "SIGN UP", new_user_path, class:'nav-link js-scroll-trigger' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "LOG IN", new_session_path, class:'nav-link js-scroll-trigger' %>                
+              </li>
+              <li class="nav-item">
+                <%= link_to "CONTACT", new_contact_path, class:'nav-link js-scroll-trigger' %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </nav>

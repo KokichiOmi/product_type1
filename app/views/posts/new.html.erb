@@ -1,0 +1,17 @@
+<header class="masthead text-center text-white d-flex">
+  <div class="container my-auto">
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        <h1>New Post</h1>
+      </div>
+      <div class="col-lg-8 mx-auto">
+        <div>
+          <%= render 'form', post: @post %>
+        </div>
+        <div>
+          <%= link_to 'Back', posts_path, class: 'btn btn-info'  %>       
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

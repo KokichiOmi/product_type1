@@ -1,0 +1,27 @@
+<header class="masthead text-center text-white d-flex">
+  <div class="container my-auto">
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        <p id="notice"><%= notice %></p>
+        <p>
+          <strong>Name:</strong>
+          <%= @user.name %>
+        </p>
+        <p>
+          <strong>Email:</strong>
+          <%= @user.email %>
+        </p>
+      </div>
+      <div class="col-lg-8 mx-auto">
+        <div>
+          <%= link_to 'Edit', edit_user_path(@user) %>
+        </div>
+        <div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+

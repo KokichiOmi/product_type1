@@ -1,0 +1,31 @@
+<header class="masthead text-center text-white d-flex">
+  <div class="container my-auto">
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        <p id="notice"><%= notice %></p>
+        <p>
+          Posted by <%= @post.user.name %>
+        </p>
+        <p>
+          <%= image_tag @post.image %>
+        </p>
+        <p>
+          <%= @post.content %>
+        </p>
+        <% unless @post.user_id == current_user.id %>
+          <% if @favorite.present? %>
+            <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
+          <% else %>
+            <%= link_to 'お気に入りする', favorites_path(post_id: @post.id), method: :post, class: 'btn btn-primary' %>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="col-lg-8 mx-auto">
+        <div>
+          <%= link_to 'Edit', edit_post_path(@post) %>
+          <%= link_to 'Back', posts_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
