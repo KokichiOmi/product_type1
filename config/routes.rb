@@ -11,8 +11,6 @@ Rails.application.routes.draw do
   resources :users
   resources :favorites, only: [:create, :destroy, :index]
 
-  if Rails.env.development?
-    mount LetterOpenerWeb::Engine, at: "/letter_opener"
-  end
+  mount LetterOpenerWeb::Engine, at: "/letter_opener"
     
 end
