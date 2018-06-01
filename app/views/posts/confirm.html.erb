@@ -22,22 +22,3 @@
     </div>
   </div>
 </header>
-
-
-
-<h3>以下の内容で、送信する。</h3>
-
-<%= form_with(model: @post, url: posts_path, local: true) do |form| %>
-  <p>トピックス画像:</p>
-  <%= image_tag(@post.image.url) %>
-  <%= hidden_field_tag :"cache[image]",@post.image.cache_name %>
-  <p>コンテンツ:<%= @post.content %></p>  
-  <%= form.hidden_field :content %>
-  <%= form.submit "登録する" %>
-<% end %>
-
-<%= form_with(model: @post, url: new_post_path, local: true) do |form| %>
-  <%= hidden_field_tag :"cache[image]",@post.image.cache_name %>
-  <%= form.hidden_field :content %>
-  <%= form.submit "戻る", name: "back" %>
-<% end %>
