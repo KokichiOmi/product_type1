@@ -22,7 +22,9 @@
       </div>
       <div class="col-lg-8 mx-auto">
         <div>
+          <% if @post.user_id == current_user.id %>
           <%= link_to 'Edit', edit_post_path(@post) , class: 'btn btn-success' %>
+          <% end %>
           <%= link_to 'List', posts_path, class: 'btn btn-secondary' %>
         </div>
       </div>
@@ -48,8 +50,8 @@
 <% end %>
 <% @comments.each do |comment| %>
   <div class = "block_field" >
-    <p><%= comment.user.name %><<%= comment.created_at %>></p><br>
-    <p><%= comment.body %></p>
+    <p><%= comment.user.name %><<%= comment.created_at.in_time_zone('Tokyo') %>></p><br>
+    <p><%= comment.body %></p><br><br><br>
   </div>
 <% end %>
 </main>
