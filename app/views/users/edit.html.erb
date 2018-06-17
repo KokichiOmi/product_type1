@@ -2,15 +2,15 @@
   <div class="container my-auto">
     <div class="row">
       <div class="col-lg-10 mx-auto">
-        <h1>Editing User</h1>
+        <h1>Update your profile</h1>
       </div>
       <div class="col-lg-8 mx-auto">
         <div>
           <%= render 'form', user: @user %>
         </div>
         <div>
-          <%= link_to 'Show', @user %> |
-          <%= link_to 'Back', users_path %>          
+          <%= link_to 'My Page', @user, class:'btn btn-secondary' %> |
+          <%= link_to 'User List', users_path, class:'btn btn-success'  %>          
         </div>
       </div>
     </div>

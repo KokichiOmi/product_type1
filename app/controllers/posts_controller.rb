@@ -8,12 +8,21 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
+    @posts = Post.paginate(page: params[:page], :per_page => 5)
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
+
     @favorite = current_user.favorites.find_by(post_id: @post.id)
+    @comments = @post.comments.includes(:user).all
+
+    @comment = Comment.new
+    @comment.post_id = @post.id
+    @comment.user_id = current_user.id
+    #binding.pry
+
   end
 
   # GET /posts/new

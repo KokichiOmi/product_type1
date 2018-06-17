@@ -12,17 +12,21 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :image %>
-    <%= form.file_field :image, id: :post_image %>
+    <tr>
+    <td><%= form.label :image %></td>
+    <td><%= form.file_field :image, id: :post_image %></td>
     <%= form.hidden_field :image_cache %>
+    </tr>
   </div>
   
   <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content, id: :post_content %>
+    <tr>
+    <td><%= form.label :content %></td>
+    <td><%= form.text_area :content, id: :post_content %></td>
+    <tr>
   </div>
 
   <div class="actions">
-    <%= form.submit :Create, class: 'btn btn-primary' %>
+    <%= form.submit class: 'btn btn-primary' %>
   </div>
 <% end %>

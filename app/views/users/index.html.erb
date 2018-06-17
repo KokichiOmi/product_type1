@@ -1,31 +1,27 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Users</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Password digest</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.name %></td>
-        <td><%= user.email %></td>
-        <td><%= user.password_digest %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New User', new_user_path %>
+<header class="masthead text-center text-white d-flex">
+  <div class="container my-auto">
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        <p id="notice"><%= notice %></p>
+        <h1>Users List</h1>
+        <%= will_paginate %>
+        <table>
+          <% @users.each do |user| %>
+          　<tr>
+              <td>name <%= user.name %></td>
+          　</tr>
+            <tr>
+              <td>email <%= user.email %></td>
+            </tr>
+            <tr>
+              <td>
+                <%= link_to 'show', user, class: 'btn btn-primary' %> 
+              </td>
+            </tr>
+          <% end %>
+        </table>
+        <%= will_paginate %>
+      </div>
+    </div>
+  </div>
+</header>

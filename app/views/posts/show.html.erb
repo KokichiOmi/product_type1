@@ -22,10 +22,34 @@
       </div>
       <div class="col-lg-8 mx-auto">
         <div>
-          <%= link_to 'Edit', edit_post_path(@post) %>
-          <%= link_to 'Back', posts_path %>
+          <%= link_to 'Edit', edit_post_path(@post) , class: 'btn btn-success' %>
+          <%= link_to 'List', posts_path, class: 'btn btn-secondary' %>
         </div>
       </div>
     </div>
   </div>
 </header>
+<main class = "block_field">
+<!--<p><%#= current_user.name %></p>-->
+<%= form_with(model: @comment, local: true) do |form| %>
+  <div class="field">
+    <%= form.hidden_field :user_id %>
+  </div>
+  <div class="field">
+    <%= form.hidden_field :post_id %>   
+  </div>
+  <div class="field">
+    <%= form.label :Comment %><br>
+    <%= form.text_area :body, id: :comment_body %>
+  </div>
+  <div class="actions">
+    <%= form.submit :COMMENT, class: 'btn btn-primary' %>
+  </div>
+<% end %>
+<% @comments.each do |comment| %>
+  <div class = "block_field" >
+    <p><%= comment.user.name %><<%= comment.created_at %>></p><br>
+    <p><%= comment.body %></p>
+  </div>
+<% end %>
+</main>

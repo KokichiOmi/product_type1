@@ -4,6 +4,7 @@
       <div class="col-lg-10 mx-auto">
         <p id="notice"><%= notice %></p>
         <h1>Posts</h1>
+          <%= will_paginate %>
         <table>
           <% @posts.each do |post| %>
           　<tr>
@@ -24,6 +25,7 @@
             </tr>
           <% end %>
         </table>
+          <%= will_paginate %>
       </div>
     </div>
   </div>

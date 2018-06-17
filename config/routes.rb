@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :comments, only: [:create]
   resources :contacts, only: [:new, :create]
   root to: 'posts#top'
   resources :sessions, only: [:new, :create, :destroy]

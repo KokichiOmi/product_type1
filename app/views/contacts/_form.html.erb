@@ -15,10 +15,12 @@
     <%= form.label :name %>
     <%= form.text_field :name, id: :contact_name %>
   </div>
-
+  
   <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email, id: :contact_email %>
+      <td>
+        <%= form.label :email %>
+        <%= form.text_field :email, id: :contact_email %>
+      </td>
   </div>
 
   <div class="field">
@@ -26,7 +28,7 @@
     <%= form.text_area :content, id: :contact_content %>
   </div>
 
-  <div class="actions btn btn-primary">
-    <%= form.submit %>
+  <div class="actions">
+    <%= form.submit :Contact, class: 'btn btn-primary' %>
   </div>
 <% end %>

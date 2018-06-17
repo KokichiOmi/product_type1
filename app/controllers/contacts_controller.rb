@@ -24,8 +24,8 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
 
     if @contact.save
-      ContactMailer.post_mail(@post).deliver
-      redirect_to @contact, notice: 'Contact was successfully created.'
+      ContactMailer.contact_mail(@contact).deliver
+      redirect_to root_url, notice: 'Contact was successfully created.'
     else
       render :new
     end

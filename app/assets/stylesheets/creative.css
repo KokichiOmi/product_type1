@@ -2,10 +2,12 @@ body,
 html {
   width: 100%;
   height: 100%;
+  margin: 0 auto; 
 }
 
 body {
   font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
+　background-color: black; /*反映なし*/
 }
 
 hr {
@@ -310,4 +312,15 @@ header.masthead p {
 
 .btn-primary:active, .btn-primary:focus {
   box-shadow: 0 0 0 0.2rem rgba(240, 95, 64, 0.5) !important;
+}
+
+#comment_body{
+  width:  400px;
+  height: 100px;
+}
+
+.block_field{
+  
+  margin: 0 auto; 
+  
 }
