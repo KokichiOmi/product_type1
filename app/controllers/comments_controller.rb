@@ -28,7 +28,7 @@ class CommentsController < ApplicationController
       #redirect_to :back, notice: 'Comment was successfully created.'
       redirect_to post_url(id: @comment.post_id), notice: 'Comment was successfully created.'
     else
-      redirect_to template: "posts/show"
+      redirect_to post_url(id: @comment.post_id), notice: 'Comment Error!!'
     end
   end
 
