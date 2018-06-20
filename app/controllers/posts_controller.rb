@@ -28,8 +28,9 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     if params[:back]
-      @post = Post.new
-      @post.image.retrieve_from_cache! params[:cache][:image]
+      @post = Post.new(post_params)
+      #@post = Post.new
+      #@post.image.retrieve_from_cache! params[:cache][:image]
     else
       @post = Post.new
     end

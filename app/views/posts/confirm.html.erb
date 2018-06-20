@@ -6,14 +6,14 @@
         <h1>Confirmation</h1>
 <%= form_with(model: @post, url: posts_path, local: true) do |form| %>
   <p>トピックス画像:</p>
-  <%= image_tag(@post.image.url) %>
+  <%= image_tag(@post.image) %>
   <%= hidden_field_tag :"cache[image]",@post.image.cache_name %>
   <p>コンテンツ:<%= @post.content %></p>  
   <%= form.hidden_field :content %>
   <%= form.submit "登録する", class: 'btn btn-success' %>
 <% end %>
 
-<%= form_with(model: @post, url: new_post_path, local: true) do |form| %>
+<%= form_with(model: @post, url: new_post_path, local: true, method: 'get') do |form| %>
   <%= hidden_field_tag :"cache[image]",@post.image.cache_name %>
   <%= form.hidden_field :content %>
   <%= form.submit "戻る", name: "back", class: 'btn btn-info' %>
