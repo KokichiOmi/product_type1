@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   
   # GET /users/1
   def show
-    @posts = @user.post.paginate(page: params[:page], :per_page => 1)
+    @posts = @user.post.paginate(page: params[:page], :per_page => 5)
   end
 
   # GET /users/new
