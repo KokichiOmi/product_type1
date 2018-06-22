@@ -9,7 +9,11 @@
           </div>
           <div class="col-lg-8 mx-auto">
             <p class="text-faded mb-5">Test Sight</p>
-            <a class="btn btn-primary btn-xl js-scroll-trigger" href="users/new">Join !!</a>
+            <% if logged_in? %>
+              <a class="btn btn-primary btn-xl js-scroll-trigger" href="posts">Check !!</a>
+            <% else %>
+              <a class="btn btn-primary btn-xl js-scroll-trigger" href="users/new">Join !!</a>
+            <% end %>
           </div>
         </div>
       </div>
